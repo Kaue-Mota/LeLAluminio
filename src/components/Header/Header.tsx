@@ -26,17 +26,18 @@ export default function Header() {
         scrolled ? "glass-header shadow-lg" : "bg-transparent"
       }`}
     >
-      <div className="section-container flex items-center justify-between h-16 md:h-20">
+      <div className="section-container flex
+       items-center justify-between h-16 md:h-20">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center  gap-3">
           <img
             src="/images/logo/logo.webp"
-            alt="AlumiPro Logo"
-            className="h-20 w-20 rounded-lg object-cover"
+            alt="LeL aluminio"
+            className="logo rounded-lg object-cover"
+            width={150}
           />
-          <span className="font-display text-xl font-bold tracking-wider text-foreground">
-            L&L<span className="text-primary"> Alumínio</span>
-          </span>
+         
+            
         </Link>
 
         {/* Desktop Nav */}

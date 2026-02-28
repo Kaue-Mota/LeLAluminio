@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap");
 
 @layer base {
   :root {
@@ -61,7 +61,12 @@
     @apply bg-background text-foreground font-body antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-display;
   }
 }
@@ -97,7 +102,7 @@
   .filter-btn {
     @apply px-5 py-2 rounded-full text-sm font-display font-medium uppercase tracking-wider
            border border-border text-muted-foreground
-           transition-all duration-300 hover:border-primary hover:text-primary;
+           transition-all duration-300 hover:border-primary ;
   }
 
   .filter-btn-active {
@@ -109,7 +114,9 @@
   .scroll-fade-up {
     opacity: 0;
     transform: translateY(40px);
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    transition:
+      opacity 0.7s ease-out,
+      transform 0.7s ease-out;
   }
   .scroll-fade-up.visible {
     opacity: 1;
@@ -127,7 +134,9 @@
   .scroll-slide-left {
     opacity: 0;
     transform: translateX(-60px);
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    transition:
+      opacity 0.7s ease-out,
+      transform 0.7s ease-out;
   }
   .scroll-slide-left.visible {
     opacity: 1;
@@ -137,7 +146,9 @@
   .scroll-slide-right {
     opacity: 0;
     transform: translateX(60px);
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    transition:
+      opacity 0.7s ease-out,
+      transform 0.7s ease-out;
   }
   .scroll-slide-right.visible {
     opacity: 1;

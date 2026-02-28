@@ -3,11 +3,18 @@ import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import ProductModal from "../../components/Main/ProductModal";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
+interface ProductVariant {
+  label: string;
+  hex: string;
+  src: string;
+}
+
 interface Product {
   id: number;
   nome: string;
   categoria: string;
   src: string;
+  variants?: ProductVariant[];
 }
 
 const categories = [
@@ -34,7 +41,9 @@ export default function Catalogo() {
   }, []);
 
   const filtered =
-    filter === "todos" ? products : products.filter((p) => p.categoria === filter);
+    filter === "todos"
+      ? products
+      : products.filter((p) => p.categoria === filter);
 
   const handleClose = useCallback(() => setSelected(null), []);
 
@@ -71,6 +80,7 @@ export default function Catalogo() {
               key={p.id}
               nome={p.nome}
               src={p.src}
+              variants={p.variants}
               onClick={() => setSelected(p)}
             />
           ))}

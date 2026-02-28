@@ -44,8 +44,8 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* BG Image */}
         <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/hero-section-bg.webp')" }}
+          className="absolute inset-0 bg-cover sm:bg-center bg-right"
+          style={{ backgroundImage: "url('/images/Hero-bg.png')" }}
         />
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />

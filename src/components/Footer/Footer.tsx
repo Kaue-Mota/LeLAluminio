@@ -5,7 +5,8 @@ export default function Footer() {
         <img
           src="/images/logo/logo.webp"
           alt="L&L"
-          className="h-20 w-20 rounded-lg object-cover"
+          className=" rounded-lg object-cover"
+          width={300}
         />
         <span className="font-display text-lg font-bold tracking-wider text-foreground">
           L&L<span className="text-primary"> Alumínio</span>

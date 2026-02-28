@@ -1,12 +1,75 @@
 [
-  { "id": 1, "nome": "Panela Alumínio 5L", "categoria": "panelas", "src": "/images/catalogo/panela1.webp" },
-  { "id": 2, "nome": "Panela Alumínio 10L", "categoria": "panelas", "src": "/images/catalogo/panela2.webp" },
-  { "id": 3, "nome": "Frigideira Alumínio 28cm", "categoria": "frigideiras", "src": "/images/catalogo/frigideira1.webp" },
-  { "id": 4, "nome": "Frigideira Alumínio 22cm", "categoria": "frigideiras", "src": "/images/catalogo/frigideira2.webp" },
-  { "id": 5, "nome": "Copo Alumínio 300ml", "categoria": "copos", "src": "/images/catalogo/copo1.webp" },
-  { "id": 6, "nome": "Copo Alumínio 500ml", "categoria": "copos", "src": "/images/catalogo/copo2.webp" },
-  { "id": 7, "nome": "Prato Alumínio Raso", "categoria": "pratos", "src": "/images/catalogo/prato1.webp" },
-  { "id": 8, "nome": "Prato Alumínio Fundo", "categoria": "pratos", "src": "/images/catalogo/prato2.webp" },
-  { "id": 9, "nome": "Bacia Alumínio 8L", "categoria": "bacias", "src": "/images/catalogo/bacia1.webp" },
-  { "id": 10, "nome": "Cuscuzeira Alumínio", "categoria": "cuscuzeiras", "src": "/images/catalogo/cuscuzeira1.webp" }
+  {
+    "id": 1,
+    "nome": "Panela Alumínio 5L",
+    "categoria": "panelas",
+    "src": "/images/catalogo/panela1.webp",
+    "variants": [
+      {
+        "label": "Vermelho",
+        "hex": "#C62828",
+        "src": "/images/catalogo/panela-var-red.png"
+
+      },
+      {
+        "label": "Preta",
+        "hex": "#000000",
+        "src": "/images/catalogo/panela-var-preta.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "nome": "Panela Alumínio 10L",
+    "categoria": "panelas",
+    "src": "/images/catalogo/panela2.webp"
+  },
+  {
+    "id": 3,
+    "nome": "Frigideira Alumínio 28cm",
+    "categoria": "frigideiras",
+    "src": "/images/catalogo/frigideira1.webp"
+  },
+  {
+    "id": 4,
+    "nome": "Frigideira Alumínio 22cm",
+    "categoria": "frigideiras",
+    "src": "/images/catalogo/frigideira2.webp"
+  },
+  {
+    "id": 5,
+    "nome": "Copo Alumínio 300ml",
+    "categoria": "copos",
+    "src": "/images/catalogo/copo1.webp"
+  },
+  {
+    "id": 6,
+    "nome": "Copo Alumínio 500ml",
+    "categoria": "copos",
+    "src": "/images/catalogo/copo2.webp"
+  },
+  {
+    "id": 7,
+    "nome": "Prato Alumínio Raso",
+    "categoria": "pratos",
+    "src": "/images/catalogo/prato1.webp"
+  },
+  {
+    "id": 8,
+    "nome": "Prato Alumínio Fundo",
+    "categoria": "pratos",
+    "src": "/images/catalogo/prato2.webp"
+  },
+  {
+    "id": 9,
+    "nome": "Bacia Alumínio 8L",
+    "categoria": "bacias",
+    "src": "/images/catalogo/bacia1.webp"
+  },
+  {
+    "id": 10,
+    "nome": "Cuscuzeira Alumínio",
+    "categoria": "cuscuzeiras",
+    "src": "/images/catalogo/cuscuzeira1.webp"
+  }
 ]
