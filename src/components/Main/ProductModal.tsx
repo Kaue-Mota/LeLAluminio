@@ -49,7 +49,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
 
     ${colorText}
 
-     ${imageToShow}
+     https://site-freela-lelaluminio.vercel.app/${imageToShow}
     
     Pode me passar mais informações?`;
 
