@@ -5,12 +5,17 @@ import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 const previewProducts = [
-  { nome: "Panela 5L", src: "/images/catalogo/panela1.webp" },
-  { nome: "Frigideira 28cm", src: "/images/catalogo/frigideira1.webp" },
-  { nome: "Copo 300ml", src: "/images/catalogo/copo1.webp" },
-  { nome: "Cuscuzeira", src: "/images/catalogo/cuscuzeira1.webp" },
-  { nome: "Prato Raso", src: "/images/catalogo/prato1.webp" },
-  { nome: "Bacia 8L", src: "/images/catalogo/bacia1.webp" },
+  { nome: "Bandeja com 6 copos", src: "/images/catalogo/bandeja-com-6copos.webp"},
+
+  { nome: "Cafeteira", src: "/images/catalogo/cafeteira-1500-1000-500.webp" },
+
+  { nome: "Cuscuzeira", src: "/images/catalogo/cuscuzeira-18-16-14.webp" },
+
+  { nome: "Cuscuzeira Paulistinha Baixa", src: "/images/catalogo/cuscuzeira-paulistinha-baixa.webp" },
+
+  { nome: "Jogo Leiteira", src: "/images/catalogo/jogo-leiteira-12-14-16.webp" },
+
+  { nome: "Jogo Panela Alta", src: "/images/catalogo/jogo-panela-alta-16-24.webp" },
 ];
 
 const reviews = [
