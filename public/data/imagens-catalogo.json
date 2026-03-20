@@ -10,7 +10,19 @@
         "label": "Preta",
         "hex": "#000000",
         "src": "/images/catalogo/bandeja-com-6copos-var-preta.webp"
-      }
+      },
+
+        {
+          "label": "Vermelha",
+          "hex": "#FF0000",
+          "src": "/images/catalogo/bandeja-com-6copos.webp"
+        },
+
+        {
+          "label": "rosa",
+          "hex": "#FFC0CB",
+          "src": "/images/catalogo/bandeja-com-6copos.webp"
+        }
     ]
   },
   {
@@ -24,7 +36,19 @@
         "label": "Preta",
         "hex": "#000000",
         "src": "/images/catalogo/cafeteira-1500-1000-500-var-preta.webp"
-      }
+      },
+
+        {
+          "label": "Vermelha",
+          "hex": "#FF0000",
+          "src": "/images/catalogo/cafeteira-1500-1000-500.webp"
+        },
+
+        {
+          "label": "rosa",
+          "hex": "#FFC0CB",
+          "src": "/images/catalogo/cafeteira-1500-1000-500.webp"
+        }
     ]
   },
   {
@@ -38,7 +62,18 @@
         "label": "Preta",
         "hex": "#000000",
         "src": "/images/catalogo/cuscuzeira-18-16-14-var-preta.webp"
-      }
+      },
+        {
+          "label": "Vermelha",
+          "hex": "#FF0000",
+          "src": "/images/catalogo/cuscuzeira-18-16-14.webp"
+        },
+
+        {
+          "label": "rosa",
+          "hex": "#FFC0CB",
+          "src": "/images/catalogo/cuscuzeira-18-16-14.webp"
+        }
     ]
   },
   {
@@ -52,7 +87,18 @@
         "label": "Preta",
         "hex": "#000000",
         "src": "/images/catalogo/cuscuzeira-indiana-tampa-de-vidro-var-preta.webp"
-      }
+      },
+        {
+          "label": "Vermelha",
+          "hex": "#FF0000",
+          "src": "/images/catalogo/cuscuzeira-indiana-tampa-de-vidro.webp"
+        },
+
+        {
+          "label": "rosa",
+          "hex": "#FFC0CB",
+          "src": "/images/catalogo/cuscuzeira-indiana-tampa-de-vidro.webp"
+        }
     ]
   },
   {
@@ -66,7 +112,18 @@
         "label": "Preta",
         "hex": "#000000",
         "src": "/images/catalogo/cuscuzeira-paulistinha-baixa-var-preta.webp"
-      }
+      },
+        {
+          "label": "Vermelha",
+          "hex": "#FF0000",
+          "src": "/images/catalogo/cuscuzeira-paulistinha-baixa.webp"
+        },
+
+        {
+          "label": "rosa",
+          "hex": "#FFC0CB",
+          "src": "/images/catalogo/cuscuzeira-paulistinha-baixa.webp"
+        }
     ]
   },
   {
@@ -80,7 +137,18 @@
         "label": "Preta",
         "hex": "#000000",
         "src": "/images/catalogo/cuscuzeira-indiana-var-preta.webp"
-      }
+      },
+        {
+          "label": "Vermelha",
+          "hex": "#FF0000",
+          "src": "/images/catalogo/cuscuzeira-indiana.webp"
+        },
+
+        {
+          "label": "rosa",
+          "hex": "#FFC0CB",
+          "src": "/images/catalogo/cuscuzeira-indiana.webp"
+        }
     ]
   },
   {
@@ -94,7 +162,18 @@
         "label": "Preta",
         "hex": "#000000",
         "src": "/images/catalogo/jogo-leiteira-12-14-16-var-preta.webp"
-      }
+      },
+        {
+          "label": "Vermelha",
+          "hex": "#FF0000",
+          "src": "/images/catalogo/jogo-leiteira-12-14-16.webp"
+        },
+
+        {
+          "label": "rosa",
+          "hex": "#FFC0CB",
+          "src": "/images/catalogo/jogo-leiteira-12-14-16.webp"
+        }
     ]
   },
   {
@@ -108,7 +187,18 @@
         "label": "Preta",
         "hex": "#000000",
         "src": "/images/catalogo/jogo-panela-alta-var-preta-16-24.webp"
-      }
+      },
+        {
+          "label": "Vermelha",
+          "hex": "#FF0000",
+          "src": "/images/catalogo/jogo-panela-alta-16-24.webp"
+        },
+
+        {
+          "label": "rosa",
+          "hex": "#FFC0CB",
+          "src": "/images/catalogo/jogo-panela-alta-16-24.webp"
+        }
     ]
   },
   {
@@ -122,7 +212,18 @@
         "label": "Preta",
         "hex": "#000000",
         "src": "/images/catalogo/jogo-panela-baixa-var-preta-14-22.webp"
-      }
+      },
+        {
+          "label": "Vermelha",
+          "hex": "#FF0000",
+          "src": "/images/catalogo/jogo-panela-baixa-14-22.webp"
+        },
+
+        {
+          "label": "rosa",
+          "hex": "#FFC0CB",
+          "src": "/images/catalogo/jogo-panela-baixa-14-22.webp"
+        }
     ]
   }
 ]
