@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { X } from "lucide-react";
+import { X, ArrowRight } from "lucide-react";
 
 interface ProductVariant {
   label: string;
@@ -11,7 +11,7 @@ interface Product {
   id: number;
   nome: string;
   categoria: string;
-  src: string; // imagem padrão
+  src: string;
   variants?: ProductVariant[];
   sizes?: string[];
 }
@@ -22,48 +22,39 @@ interface ProductModalProps {
 }
 
 export default function ProductModal({ product, onClose }: ProductModalProps) {
-  // null = padrão (product.src)
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
-  const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(
-    null,
-  );
+  const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(null);
+  const [imgLoaded, setImgLoaded] = useState(false);
 
   const handleInterest = () => {
     if (!product) return;
-
+    const sizeText = selectedSize ?? "Padrão";
+    const colorText = selectedVariant?.label ?? "Padrão";
     const imageToShow = selectedVariant?.src ?? product.src;
-    const sizeText = selectedSize
-      ? `${selectedSize}`
-      : "Padrão";
-    const colorText = selectedVariant
-      ? `${selectedVariant.label}`
-      : "Padrão";
 
-const message = `➤ *OLÁ, ACABEI DE CHEGAR DO CATÁLOGO DE VOCÊS, TENHO INTERESSE NESTE PRODUTO* 
-    
-    ❯ PRODUTO - *${product.nome}*
+    const message = `➤ *OLÁ, ACABEI DE CHEGAR DO CATÁLOGO DE VOCÊS, TENHO INTERESSE NESTE PRODUTO*
 
-    ❯ CATEGORIA - *${product.categoria}*
-
-    ❯  TAMANHO - *${sizeText}*
-
-    ❯  COR - *${colorText}*
+❯ PRODUTO — *${product.nome}*
+❯ CATEGORIA — *${product.categoria}*
+❯ TAMANHO — *${sizeText}*
+❯ COR — *${colorText}*
 
 ➤ *Pode me passar mais informações?*
 
-❯ IMAGEM : https://lelaluminio.vercel.app/${imageToShow}`;
-    
-  
+❯ IMAGEM: https://lelaluminio.vercel.app/${imageToShow}`;
 
-    const phoneNumber = "5588933008270";
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappURL, "_blank");
+    window.open(
+      `https://wa.me/5588933008270?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
   };
 
+  // Reset state on product change
   useEffect(() => {
     if (!product) return;
-    // Abre no padrão (não na primeira variant)
     setSelectedVariant(null);
+    setSelectedSize(null);
+    setImgLoaded(false);
   }, [product]);
 
   useEffect(() => {
@@ -74,129 +65,152 @@ const message = `➤ *OLÁ, ACABEI DE CHEGAR DO CATÁLOGO DE VOCÊS, TENHO INTER
     return () => document.removeEventListener("keydown", handler);
   }, [onClose]);
 
+  // Prevent body scroll when open
+  useEffect(() => {
+    if (product) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [product]);
+
   if (!product) return null;
 
   const imageToShow = selectedVariant?.src ?? product.src;
 
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-center justify-center bg-background/80 backdrop-blur-sm animate-fade-in p-4"
+      className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center bg-background/75 backdrop-blur-md animate-fade-in p-0 sm:p-4"
       onClick={onClose}
     >
       <div
-        className="relative bg-card border border-border rounded-2xl max-w-lg w-full overflow-hidden animate-scale-in"
+        className="relative bg-card border border-border/60 w-full sm:max-w-2xl sm:rounded-2xl rounded-t-2xl overflow-hidden animate-slide-in-modal flex flex-col md:flex-row shadow-[0_32px_80px_rgba(0,0,0,0.6)]"
         onClick={(e) => e.stopPropagation()}
       >
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-secondary text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-          aria-label="Fechar"
-        >
-          <X size={20} />
-        </button>
+        {/* ─── Image panel ─── */}
+        <div className="relative md:w-[45%] aspect-square md:aspect-auto bg-secondary/40 shrink-0 overflow-hidden">
+          <img
+            key={imageToShow}
+            src={imageToShow}
+            alt={product.nome}
+            onLoad={() => setImgLoaded(true)}
+            className={`w-full h-full object-cover transition-all duration-500 ${
+              imgLoaded ? "opacity-100 scale-100" : "opacity-0 scale-[1.02]"
+            }`}
+          />
+          {/* Category badge over image */}
+          <div className="absolute top-3 left-3">
+            <span className="px-3 py-1 rounded-full bg-background/80 backdrop-blur-sm text-primary text-[10px] font-display uppercase tracking-wider border border-primary/20">
+              {product.categoria}
+            </span>
+          </div>
+        </div>
 
-        <img
-          src={imageToShow}
-          alt={product.nome}
-          className="w-full aspect-square object-cover"
-        />
+        {/* ─── Content panel ─── */}
+        <div className="flex flex-col flex-1 overflow-y-auto max-h-[55vh] md:max-h-[75vh]">
+          {/* Close button */}
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 z-10 p-1.5 rounded-full bg-secondary/80 text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-200 backdrop-blur-sm"
+            aria-label="Fechar"
+          >
+            <X size={16} />
+          </button>
 
-        <div className="p-6">
-          <h3 className="font-display text-2xl font-bold text-foreground">
-            {product.nome}
-          </h3>
+          <div className="p-6 flex flex-col gap-5 flex-1">
+            {/* Product name */}
+            <h3 className="font-display text-xl md:text-2xl font-bold text-foreground leading-tight pr-8">
+              {product.nome}
+            </h3>
 
-          <span className="inline-block mt-2 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-display uppercase tracking-wider">
-            {product.categoria}
-          </span>
-
-          <div>
+            {/* Sizes */}
             {product.sizes && product.sizes.length > 0 && (
-              <div className="mt-5">
-                <p className="text-sm text-muted-foreground mb-2">Tamanhos:</p>
-
-                <ul className="flex flex-wrap gap-3">
+              <div>
+                <p className="text-xs font-display uppercase tracking-wider text-muted-foreground mb-3">
+                  Tamanho
+                </p>
+                <div className="flex flex-wrap gap-2">
                   {product.sizes.map((size) => {
                     const isActive = selectedSize === size;
-
                     return (
-                      <li key={size}>
-                        <button
-                          type="button"
-                          onClick={() => setSelectedSize(size)}
-                          className={[
-                            "min-w-[56px] px-4 h-10 rounded-full border text-sm font-medium transition",
-                            isActive
-                              ? "border-red-600 bg-red-600 text-white"
-                              : "border-border bg-transparent text-foreground hover:border-red-600 hover:text-red-500",
-                          ].join(" ")}
-                        >
-                          {size}
-                        </button>
-                      </li>
+                      <button
+                        key={size}
+                        type="button"
+                        onClick={() => setSelectedSize(isActive ? null : size)}
+                        className={`min-w-[52px] px-4 h-9 rounded-full border text-sm font-display transition-all duration-200 ${
+                          isActive
+                            ? "border-primary bg-primary text-primary-foreground"
+                            : "border-border bg-transparent text-foreground hover:border-primary/60"
+                        }`}
+                      >
+                        {size}
+                      </button>
                     );
                   })}
-                </ul>
+                </div>
               </div>
             )}
-          </div>
 
-          {product.variants && product.variants.length > 0 && (
-            <div className="mt-5">
-              <p className="text-sm text-muted-foreground mb-2">Cores:</p>
-
-              <ul className="flex gap-3 items-center">
-                {/* BOTÃO PADRÃO */}
-                <li>
+            {/* Colors */}
+            {product.variants && product.variants.length > 0 && (
+              <div>
+                <p className="text-xs font-display uppercase tracking-wider text-muted-foreground mb-3">
+                  Cor — <span className="text-foreground normal-case tracking-normal font-body">
+                    {selectedVariant?.label ?? "Padrão"}
+                  </span>
+                </p>
+                <div className="flex flex-wrap gap-2.5 items-center">
+                  {/* Default */}
                   <button
                     type="button"
                     onClick={() => setSelectedVariant(null)}
-                    className={[
-                      "w-10 h-10 rounded-full border-2 transition flex items-center justify-center text-xs",
+                    className={`w-9 h-9 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${
                       selectedVariant === null
-                        ? "border-red-600 ring-2 ring-red-600/40"
-                        : "border-border hover:border-red-600",
-                    ].join(" ")}
-                    aria-label="Voltar para cor padrão"
+                        ? "border-primary shadow-[0_0_0_2px_hsl(var(--primary)/0.25)]"
+                        : "border-border hover:border-primary/50"
+                    }`}
                     title="Padrão"
+                    aria-label="Cor padrão"
                   >
-                    {/* indicador simples do padrão */}
-                    <span className="w-4 h-4 rounded-full bg-gradient-to-br from-white to-zinc-400 border border-border" />
+                    <span className="w-4 h-4 rounded-full bg-gradient-to-br from-zinc-200 to-zinc-500 border border-border" />
                   </button>
-                </li>
 
-                {/* VARIANTS */}
-                {product.variants.map((v) => {
-                  const isActive = selectedVariant?.label === v.label;
-
-                  return (
-                    <li key={v.label}>
+                  {product.variants.map((v) => {
+                    const isActive = selectedVariant?.label === v.label;
+                    return (
                       <button
+                        key={v.label}
                         type="button"
                         onClick={() => setSelectedVariant(v)}
-                        className={[
-                          "w-10 h-10 rounded-full border-2 transition",
+                        className={`w-9 h-9 rounded-full border-2 transition-all duration-200 ${
                           isActive
-                            ? "border-red-600 ring-2 ring-red-600/40"
-                            : "border-border hover:border-red-600",
-                        ].join(" ")}
+                            ? "border-primary shadow-[0_0_0_2px_hsl(var(--primary)/0.25)]"
+                            : "border-border hover:border-primary/50"
+                        }`}
                         style={{ backgroundColor: v.hex }}
-                        aria-label={`Selecionar cor ${v.label}`}
+                        aria-label={`Cor ${v.label}`}
                         title={v.label}
                       />
-                    </li>
-                  );
-                })}
-              </ul>
-              <button
-                type="button"
-                onClick={handleInterest}
-                className="mt-6 w-full h-12 rounded-xl bg-primary text-primary-foreground font-semibold uppercase tracking-wide hover:opacity-90 transition"
-              >
-                Tenho interesse
-              </button>
-            </div>
-          )}
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Spacer */}
+            <div className="flex-1" />
+
+            {/* CTA */}
+            <button
+              type="button"
+              onClick={handleInterest}
+              className="btn-primary w-full justify-center group"
+            >
+              Tenho interesse
+              <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
